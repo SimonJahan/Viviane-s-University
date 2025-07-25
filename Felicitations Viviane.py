@@ -1,9 +1,32 @@
 import streamlit as st
+from datetime import datetime
 
-st.title("🎈 Félicitations Viviane")
-st.write("Félicitations pour l'obtention de ton année, Viviane! 🎉")
+# Titre principal
+st.title("💪 Encouragements pour Viviane !")
 
-st.image("https://media.licdn.com/dms/image/v2/D4D03AQF4raXOdU0FXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715677326268?e=1756339200&v=beta&t=hL1cJUkfKIslrydPOUqYxywM72mNqV4boFzfJ2dBo3I", caption="Bravo Viviane!", width=300)
+# Accueil chaleureux
+st.header("Bienvenue Viviane ! 🌟")
+st.write("""
+Les rattrapages approchent en septembre, mais tu as tout pour réussir !  
+Garde confiance en toi, tout le monde croit en toi ! Voici quelques mots et citations pour te donner de la force.
+""")
 
-st.write("Nous sommes tous très fiers de toi et nous te souhaitons le meilleur pour la suite de tes études et ta carrière. Continue à briller ! 🌟")
-st.balloons()
+# Citations motivantes
+st.subheader("🌈 Citations motivantes")
+citations = [
+    "Le succès, c’est se promener d’échecs en échecs tout en restant motivé. – Winston Churchill",
+    "Ta seule limite, c’est toi-même.",
+    "Vous ne devez jamais abandonner. – Marie Curie",
+    "Crois en toi, tous les jours, un peu plus."
+]
+st.write(f"**{citations[datetime.now().day % len(citations)]}**")
+
+# Zone pour laisser un message d'encouragement
+st.subheader("🎉 Laisse un message à Viviane")
+message = st.text_area("Écris ici un mot d'encouragement pour Viviane :")
+if st.button("Envoyer"):
+    st.success("Merci pour ton message envoyé à Viviane ! 💌")
+
+# Footer positif
+st.markdown("<hr>", unsafe_allow_html=True)
+st.write("Toute l’équipe est derrière toi, Viviane ! Tu vas briller en septembre ✨")
